@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private void loadAllTasks() {
         ArrayList<String> taskList = dbHelper.getAllTasks();
         if(adapter == null) {
-            adapter = new ArrayAdapter<String>(this, R.layout.row, R.id.list_tasks, taskList);
+            adapter = new ArrayAdapter<String>(this, R.layout.row, R.id.text_task, taskList);
+
+
             all_tasks.setAdapter(adapter);
         } else {
             adapter.clear();
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void deletTask (View view) {
         View parent = (View) view.getParent();
 
-        TextView text_task = (TextView) findViewById(R.id.text_task);
+        TextView text_task = findViewById(R.id.text_task);
         String task = String.valueOf(text_task.getText());
         dbHelper.deleteData(task);
         loadAllTasks();
