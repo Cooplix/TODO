@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.todo"
+        applicationId "com.remiderCooplix.todo"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

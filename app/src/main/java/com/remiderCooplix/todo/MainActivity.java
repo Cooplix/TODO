@@ -1,4 +1,4 @@
-package com.example.todo;
+package com.remiderCooplix.todo;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private String name_list;
     private TextView info_app;
+    private String textToDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,9 +126,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void deletTask (View view) {
+        View parent = (View) view.getParent();
+
         TextView text_task = findViewById(R.id.text_task);
-        String task = String.valueOf(text_task.getText());
-        dbHelper.deleteData(task);
-        loadAllTasks();
+         textToDelete = String.valueOf(text_task.getText());
+
+
+        parent.animate().alpha(0).setDuration(1200).withEndAction(new Runnable() {
+            @Override
+            public void run() {
+                dbHelper.deleteData(textToDelete);
+                loadAllTasks();
+            }
+        });
     }
 }
