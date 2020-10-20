@@ -4,9 +4,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private  ListView all_tasks;
     private ArrayAdapter<String> adapter;
     private EditText field_text;
+    private SharedPreferences prefs;
+    private String name_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +40,34 @@ public class MainActivity extends AppCompatActivity {
         all_tasks = findViewById(R.id.list_tasks);
         field_text = findViewById(R.id.list_name);
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        name_list = prefs.getString("list_name", "");
+        field_text.setText(name_list);
+
         changeTextAction();
 
         loadAllTasks();
     }
 
     private void changeTextAction() {
+            field_text.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    SharedPreferences.Editor editPrefs = prefs.edit();
+                    editPrefs.putString("list_name", String.valueOf(field_text.getText()));
+                    editPrefs.apply();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
     }
 
     private void loadAllTasks() {
