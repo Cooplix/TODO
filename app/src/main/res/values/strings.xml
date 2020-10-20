@@ -3,4 +3,5 @@
     <string name="deleted">Deleted</string>
     <string name="add_new_task">Add new task</string>
     <string name="nameList">Name List</string>
+    <string name="hello">Hello</string>
 </resources>
