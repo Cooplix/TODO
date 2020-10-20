@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     DataBase dbHelper;
     private  ListView all_tasks;
     private ArrayAdapter<String> adapter;
+    private EditText field_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new DataBase(this);
         all_tasks = findViewById(R.id.list_tasks);
+        field_text = findViewById(R.id.list_name);
+
+        changeTextAction();
 
         loadAllTasks();
+    }
+
+    private void changeTextAction() {
+
     }
 
     private void loadAllTasks() {
