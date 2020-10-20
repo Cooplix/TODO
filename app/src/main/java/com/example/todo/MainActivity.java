@@ -85,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void deletTask (View view) {
-        View parent = (View) view.getParent();
-
         TextView text_task = findViewById(R.id.text_task);
         String task = String.valueOf(text_task.getText());
         dbHelper.deleteData(task);
