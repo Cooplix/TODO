@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_task"
+        android:layout_width="254dp"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="667dp"
+        android:text="Hello"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/delet_tast"
+        android:layout_width="157dp"
+        android:layout_height="64dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:background="@android:color/holo_red_light"
+        android:text="@string/deleted"
+        android:textSize="30sp" />
+</RelativeLayout>

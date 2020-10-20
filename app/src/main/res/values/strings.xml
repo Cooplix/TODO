@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TO DO</string>
+    <string name="deleted">Deleted</string>
+    <string name="add_new_task">Add new task</string>
 </resources>
