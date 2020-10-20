@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             })
                     .setNegativeButton("Cancel", null)
                     .create();
+            dialog.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
