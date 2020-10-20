@@ -3,6 +3,7 @@ package com.example.todo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -35,5 +36,10 @@ public class MainActivity extends AppCompatActivity {
             adapter.addAll(taskList);
             adapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu) {
+
     }
 }
