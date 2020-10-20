@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -82,5 +83,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void deletTask (View view) {
         View parent = (View) view.getParent();
+
+        TextView text_task = (TextView) findViewById(R.id.text_task);
+        String task = String.valueOf(text_task.getText());
+        dbHelper.deleteData(task);
+        loadAllTasks();
     }
 }
