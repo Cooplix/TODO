@@ -2,12 +2,15 @@ package com.example.todo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public  boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+
+        Drawable icon = menu.getItem(0).getIcon();
+        icon.mutate();
+        icon.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_IN);
+
+        return super.onCreateOptionsMenu(menu);
 
     }
 }
