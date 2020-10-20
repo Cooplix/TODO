@@ -18,6 +18,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="0dp"
         android:background="@android:color/holo_red_light"
+        android:onClick="deletTask"
         android:text="@string/deleted"
         android:textSize="30sp" />
 </RelativeLayout>
