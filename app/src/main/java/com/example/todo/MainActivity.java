@@ -14,6 +14,8 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,11 +32,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText field_text;
     private SharedPreferences prefs;
     private String name_list;
+    private TextView info_app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        info_app = findViewById(R.id.infoApp);
+        info_app.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_text));
 
         dbHelper = new DataBase(this);
         all_tasks = findViewById(R.id.list_tasks);
